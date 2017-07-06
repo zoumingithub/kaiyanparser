@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Related Portal</title>
+</head>
+<body>
+<div style="left: auto;right: auto">
+    <h2>Video Recommend Portal</h2>
+</div>
+<!--
+<form id="info_input">
+    <textarea name="uid" style="width: 300px"></textarea>
+    <br/>
+    <button type="submit">Recommend</button>
+</form>
+<div id="userprofile_area">
+    <span style="right:auto;left: auto"><h3><b>User Profile</b></h3></span>
+    <h4><b>Keyword preference</b></h4>
+    {% for keyword in kw_pref %}
+    {{keyword}}<br/>
+    {% endfor %}
+    <h4><b>Category preference</b></h4>
+    {% for cate in cate_pref %}
+    {{cate}}<br/>
+    {% endfor %}
+</div>
+-->
+
+<div id="recommond_area">
+    <span style="right:auto;left: auto"><h3><b>Recommend Result:{{res_num}}</b></h3></span>
+    {% for doc in docs %}
+        <!--<a href="{{doc.url}}">{{doc.url}}</a><br/>-->
+    <iframe width="420" height="345" src="{{doc['docid']}}">
+    </iframe>
+    <br/>
+
+    <a href="{{doc['original_url]']}}">{{doc['original_url]']}}</a><br/>
+    <span style="margin-left: 1px">Score: {{doc['video_info']['rank_score']}}</span>
+    <span style="margin-left: 1px">Views: {{doc['video_info']['view_count']}}</span>
+    <span style="margin-left: 1px">PubDate: {{doc['video_info']['upload_time']}} days ago</span>
+    <span style="margin-left: 10px">Category: {{doc['video_info']['category']}}</span>
+    <span style="margin-left: 10px">Title: {{doc['title']}}</span>
+    <!--<span style="margin-left: 10px">RecallWeight: {{doc.recall_weight}}</span>-->
+    <br/>
+    {% endfor %}
+</div>
+</body>
+</html>

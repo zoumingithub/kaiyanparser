@@ -1,0 +1,8 @@
+{"categories":[
+{"features":"0","id":"youtube","name":"Youtube","subscribed":true},
+{"features":"0","id":"trending","name":"Trending","subscribed":true},
+{"features":"0","id":"fof","name":"Friends","subscribed":true},
+{"features":"0","id":"politics","name":"Politics","subscribed":true},
+
+{"features":"0","id":"entertainment","name":"Entertainment","subscribed":true},{"features":"0","id":"technology","name":"Tech","subscribed":true},{"features":"0","id":"crime","name":"Crime","subscribed":true},{"features":"0","id":"business","name":"Business","subscribed":true},{"features":"0","id":"fashion","name":"Fashion","subscribed":true},{"features":"0","id":"science","name":"Science","subscribed":false},{"features":"0","id":"finance","name":"Finance","subscribed":false},{"features":"0","id":"pets","name":"Pets","subscribed":false},{"features":"0","id":"food","name":"Food","subscribed":false},{"features":"0","id":"auto","name":"Auto","subscribed":false},{"features":"0","id":"health","name":"Health","subscribed":false},{"features":"0","id":"design","name":"Design","subscribed":false},{"features":"0","id":"music","name":"Music","subscribed":false},{"features":"0","id":"diy","name":"DIY","subscribed":false},{"features":"0","id":"beauty","name":"Beauty","subscribed":false},{"features":"0","id":"gaming","name":"Gaming","subscribed":false},{"features":"0","id":"parenting","name":"Parenting","subscribed":false}
+],"version":"20161117-1"}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/json.min.js"></script>
+    <script>
+      function mark_interest(evt, url){
+        $.ajax({
+           url: url,
+           type: 'GET',
+           success: function(result) {
+               $(evt.target).closest("a").addClass('disabled');
+           },
+           error: function(result) {
+               alert("mark " + url + " failed!");
+           }});
+          evt.preventDefault();
+      }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    <meta charset="UTF-8">
+    <title>CategorizedData</title>
+</head>
+<body>
+    <div class="container" style="margin-top:100px">
+        <ul class="list-group">
+            {% for v in videos %}
+            <li class="list-group-item row">
+                <div class="col-md-4 col-sm-12">
+                    <!--
+                    <iframe width="560" height="315" src="{{v.embed_url}}" frameborder="0" allowfullscreen></iframe>
+                    -->
+                    <img src="{{v['cover']['feed']}}" width="360"/>
+                </div>
+
+                <div class="col-md-8 col-sm-12">
+                    <h5>{{v['title']}}</h5>
+                    URL: <a href="{{v['playUrl']}}">{{v['playUrl']}}</a><br/>
+                    Title: {{v['title']}}<br/>
+                    Description: {{v['description']}}<br/>
+                    DocID: {{v['id']}}<br/>
+                    Category: {{v['category']}}<br/>
+                    Uploader: {{v['author']['name']}}<br/>
+                    <a href="/mark/{{v['id']}}" class="btn btn-sm btn-info" onclick="mark_interest(event,'/mark/{{v['id']}}')">Interest</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
